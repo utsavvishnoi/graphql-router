@@ -1,8 +1,10 @@
 package com.mulesoft.services.graphql.internal;
 
+import graphql.language.Field;
 import graphql.schema.DataFetchingEnvironment;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 public class DefaultGraphqlWiringAttributes implements Serializable, com.mulesoft.services.graphql.api.GraphqlWiringAttributes {
@@ -21,6 +23,11 @@ public class DefaultGraphqlWiringAttributes implements Serializable, com.mulesof
     @Override
     public Map<String, Object> getArguments() {
         return wrappedEnvironment.getArguments();
+    }
+
+    @Override
+    public Map<String, List<Field>> getFields() {
+      return wrappedEnvironment.getSelectionSet().get();
     }
 
 }

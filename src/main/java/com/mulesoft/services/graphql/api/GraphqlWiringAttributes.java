@@ -1,6 +1,8 @@
 package com.mulesoft.services.graphql.api;
 
+import java.util.List;
 import java.util.Map;
+import graphql.language.Field;
 
 public interface GraphqlWiringAttributes {
     /**
@@ -14,4 +16,10 @@ public interface GraphqlWiringAttributes {
      * @return
      */
     Map<String, Object> getArguments();
+
+    /**
+     * Returns the fields passed to the query.
+     * @return
+     */
+    public Map<String, List<Field>> getFields();
 }
