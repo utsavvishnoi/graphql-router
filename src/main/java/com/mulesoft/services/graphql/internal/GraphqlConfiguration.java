@@ -45,7 +45,16 @@ public class GraphqlConfiguration implements Startable {
 
     private SourcePublishingWiringFactory wiringFactory = new SourcePublishingWiringFactory();
 
-    public String getName() {
+    public SourcePublishingWiringFactory getWiringFactory() {
+		return wiringFactory;
+	}
+
+	public void setWiringFactory(SourcePublishingWiringFactory wiringFactory) {
+		this.wiringFactory = wiringFactory;
+	}
+
+
+	public String getName() {
         return configName;
     }
 

@@ -33,6 +33,7 @@ public class GraphqlRouter {
     @Inject
     private ExpressionManager expressionManager;
 
+    
     private static final Logger logger = LoggerFactory.getLogger(TransformationService.class);
 
     /**
@@ -53,11 +54,10 @@ public class GraphqlRouter {
             .operationName(operation)
             .build();
 
+        
 
         ExecutionResult executionResult = config.getEngine().execute(input);
-
         Map<String, Object> result = executionResult.toSpecification();
-
         BindingContext ctx = BindingContext.builder()
                 .addBinding("payload", new TypedValue(result, DataType.fromType(result.getClass())))
                 .build();
